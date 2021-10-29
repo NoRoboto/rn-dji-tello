@@ -5,7 +5,7 @@
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/YOUR_GITHUB_USER_NAME/rn-dji-tello",
+  "repository": "https://github.com/noroboto/rn-dji-tello",
   "license": "MIT",
   "keywords": [],
   "scripts": {
