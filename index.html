@@ -1,0 +1,379 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>rn-dji-tello</title>
+	<meta name="description" content="Documentation for rn-dji-tello">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">rn-dji-tello</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>rn-dji-tello</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p align="center">
+					<h3 align="center">rn-dji-tello</h3>
+					<p align="center">
+						React native dji tello sdk wrapper
+					</p>
+				</p>
+				<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+					<h2>Table of contents</h2>
+				</a>
+				<ul>
+					<li><a href="#quick-start">Quick start</a></li>
+					<li><a href="#usage">Usage</a></li>
+					<li><a href="#whats-included">What&#39;s included</a></li>
+					<li><a href="#creators">Creators</a></li>
+					<li><a href="#thanks">Thanks</a></li>
+					<li><a href="#copyright-and-license">Copyright and license</a></li>
+				</ul>
+				<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
+					<h2>Quick start</h2>
+				</a>
+				<p>This wrapper is totally based on <a href="https://github.com/AlexanderGranhof/tello-drone">https://github.com/AlexanderGranhof/tello-drone</a>, special thanks to the author of this repo. 🙏 </p>
+				<ul>
+					<li><code>yarn add rn-dji-tello</code></li>
+				</ul>
+				<p>or</p>
+				<ul>
+					<li><code>npm install rn-dji-tello</code></li>
+				</ul>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>This is a Tello SDK wrapper exposed <a href="https://dl-cdn.ryzerobotics.com/downloads/Tello/Tello%20SDK%202.0%20User%20Guide.pdf">here</a></p>
+				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> Tello <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rn-dji-tello&#x27;</span>;
+<span class="hljs-keyword">const</span> drone = <span class="hljs-keyword">new</span> Tello();
+</code></pre>
+				<a href="#listeners" id="listeners" style="color: inherit; text-decoration: none;">
+					<h3>Listeners</h3>
+				</a>
+				<pre><code class="language-jsx">drone.current.on(event_type, callback);
+</code></pre>
+				<table>
+					<thead>
+						<tr>
+							<th>event type</th>
+							<th>description</th>
+							<th>callback args</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>connection</td>
+							<td>success connection listener</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>state</td>
+							<td>sensor state</td>
+							<td>state: DroneState</td>
+						</tr>
+						<tr>
+							<td>send</td>
+							<td>on send event listener</td>
+							<td>error: Error, lenght: Number</td>
+						</tr>
+						<tr>
+							<td>message</td>
+							<td>-</td>
+							<td>message: String</td>
+						</tr>
+				</tbody></table>
+				<a href="#senders" id="senders" style="color: inherit; text-decoration: none;">
+					<h4>Senders</h4>
+				</a>
+				<p>await drone.current?.send(command, options?, froce?);</p>
+				<p>command list:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">type</span> list = <span class="hljs-string">&#x27;command&#x27;</span> | <span class="hljs-string">&#x27;takeoff&#x27;</span> | <span class="hljs-string">&#x27;land&#x27;</span> | <span class="hljs-string">&#x27;streamon&#x27;</span> | <span class="hljs-string">&#x27;streamoff&#x27;</span> | <span class="hljs-string">&#x27;emergency&#x27;</span> | <span class="hljs-string">&#x27;up&#x27;</span> | <span class="hljs-string">&#x27;down&#x27;</span> | <span class="hljs-string">&#x27;left&#x27;</span> | <span class="hljs-string">&#x27;right&#x27;</span> | <span class="hljs-string">&#x27;forward&#x27;</span> | <span class="hljs-string">&#x27;back&#x27;</span> | <span class="hljs-string">&#x27;cw&#x27;</span> | <span class="hljs-string">&#x27;ccw&#x27;</span> | <span class="hljs-string">&#x27;flip&#x27;</span> | <span class="hljs-string">&#x27;go&#x27;</span> | <span class="hljs-string">&#x27;curve&#x27;</span> | <span class="hljs-string">&#x27;speed&#x27;</span> | <span class="hljs-string">&#x27;rc&#x27;</span> | <span class="hljs-string">&#x27;wifi&#x27;</span> | <span class="hljs-string">&#x27;speed?&#x27;</span> | <span class="hljs-string">&#x27;battery?&#x27;</span> | <span class="hljs-string">&#x27;time?&#x27;</span> | <span class="hljs-string">&#x27;wifi?&#x27;</span> | <span class="hljs-string">&#x27;sdk?&#x27;</span> | <span class="hljs-string">&#x27;sn?&#x27;</span>
+</code></pre>
+				<hr>
+				<pre><code class="language-ts"><span class="hljs-keyword">interface</span> options {
+    value?: <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>;
+    x?: <span class="hljs-built_in">number</span>;
+    y?: <span class="hljs-built_in">number</span>;
+    z?: <span class="hljs-built_in">number</span>;
+    x1?: <span class="hljs-built_in">number</span>;
+    y1?: <span class="hljs-built_in">number</span>;
+    z1?: <span class="hljs-built_in">number</span>;
+    x2?: <span class="hljs-built_in">number</span>;
+    y2?: <span class="hljs-built_in">number</span>;
+    z2?: <span class="hljs-built_in">number</span>;
+    speed?: <span class="hljs-built_in">number</span>;
+    a?: <span class="hljs-built_in">number</span>;
+    b?: <span class="hljs-built_in">number</span>;
+    c?: <span class="hljs-built_in">number</span>;
+    d?: <span class="hljs-built_in">number</span>;
+}
+</code></pre>
+				<hr>
+				<p>force: boolean</p>
+				<p>Please, read tello documentation to group the appropriate options for the desired command.</p>
+				<a href="#what39s-included" id="what39s-included" style="color: inherit; text-decoration: none;">
+					<h2>What&#39;s included</h2>
+				</a>
+				<ul>
+					<li>Support for typescript and sockets using react-native-udp.</li>
+				</ul>
+				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+					<h2>Example</h2>
+				</a>
+				<pre><code class="language-jsx"><span class="hljs-keyword">import</span>  React, {useRef, useState} <span class="hljs-keyword">from</span>  <span class="hljs-string">&#x27;react&#x27;</span>;
+
+<span class="hljs-keyword">import</span> {Button, SafeAreaView, StatusBar, StyleSheet, View} <span class="hljs-keyword">from</span>  <span class="hljs-string">&#x27;react-native&#x27;</span>;
+
+<span class="hljs-keyword">import</span>  Tello  <span class="hljs-keyword">from</span>  <span class="hljs-string">&#x27;rn-dji-tello&#x27;</span>;
+
+
+<span class="hljs-keyword">const</span>  App = <span class="hljs-function">() =&gt;</span> {
+
+  <span class="hljs-keyword">const</span> [init, setInit] = useState&lt;boolean&gt;(<span class="hljs-literal">false</span>);
+
+  <span class="hljs-keyword">const</span>  drone = useRef&lt;Tello&gt;();
+
+
+
+  <span class="hljs-keyword">const</span>  onInit = <span class="hljs-function">() =&gt;</span> {
+
+    <span class="hljs-keyword">try</span> {
+
+      drone.current = <span class="hljs-keyword">new</span>  Tello();
+
+
+
+      drone.current.on(<span class="hljs-string">&#x27;connection&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+
+       <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Connected to drone&#x27;</span>);
+
+      });
+
+
+
+      drone.current.on(<span class="hljs-string">&#x27;state&#x27;</span>, <span class="hljs-function"><span class="hljs-params">state</span>  =&gt;</span> {
+
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Received State &gt; &#x27;</span>, state);
+
+      });
+
+
+
+      drone.current.on(<span class="hljs-string">&#x27;send&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">err, length</span>) =&gt;</span> {
+
+        <span class="hljs-keyword">if</span> (err) {
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;error&#x27;</span>, err);
+        }
+
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Sent command is <span class="hljs-subst">${length}</span> long`</span>);
+
+      });
+
+
+      drone.current.on(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-function"><span class="hljs-params">message</span>  =&gt;</span> {
+
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Recieved Message &gt; &#x27;</span>, message);
+
+      });
+
+
+      setInit(<span class="hljs-literal">true</span>);
+ 
+
+    } <span class="hljs-keyword">catch</span> (error) {
+
+      <span class="hljs-built_in">console</span>.error(error);
+
+      setInit(<span class="hljs-literal">false</span>);
+
+    }
+  };
+
+
+
+  <span class="hljs-keyword">const</span>  run = <span class="hljs-keyword">async</span> () =&gt; {
+
+    <span class="hljs-keyword">await</span>  drone.current?.send(<span class="hljs-string">&#x27;takeoff&#x27;</span>);
+
+    <span class="hljs-keyword">await</span>  drone.current?.send(<span class="hljs-string">&#x27;battery?&#x27;</span>);
+
+    <span class="hljs-keyword">await</span>  drone.current?.send(<span class="hljs-string">&#x27;land&#x27;</span>);
+
+  };
+
+
+
+  <span class="hljs-keyword">return</span> (
+
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SafeAreaView</span>  <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.container}</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">StatusBar</span>  <span class="hljs-attr">barStyle</span>=<span class="hljs-string">&quot;light-content&quot;</span>  /&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">View</span>  <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.viewWrapper}</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>  <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Run&quot;</span>  <span class="hljs-attr">disabled</span>=<span class="hljs-string">{!init}</span>  <span class="hljs-attr">onPress</span>=<span class="hljs-string">{run}</span>  /&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>  <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Init&quot;</span>  <span class="hljs-attr">disabled</span>=<span class="hljs-string">{init}</span>  <span class="hljs-attr">onPress</span>=<span class="hljs-string">{onInit}</span>  /&gt;</span>
+
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">SafeAreaView</span>&gt;</span></span>
+
+  );
+
+};
+
+  
+....
+
+</code></pre>
+				<a href="#creators" id="creators" style="color: inherit; text-decoration: none;">
+					<h2>Creators</h2>
+				</a>
+				<p><strong>Me, NoRoboto</strong></p>
+				<a href="#thanks" id="thanks" style="color: inherit; text-decoration: none;">
+					<h2>Thanks</h2>
+				</a>
+				<p><a href="https://github.com/AlexanderGranhof/tello-drone">https://github.com/AlexanderGranhof/tello-drone</a></p>
+				<a href="#copyright-and-license" id="copyright-and-license" style="color: inherit; text-decoration: none;">
+					<h2>Copyright and license</h2>
+				</a>
+				<p>MIT</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/drone.html" class="tsd-kind-icon">Drone</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/addressinfo.html" class="tsd-kind-icon">Address<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/droneevents.html" class="tsd-kind-icon">Drone<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/droneoptions.html" class="tsd-kind-icon">Drone<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/dronestate.html" class="tsd-kind-icon">Drone<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/tellodrone.html" class="tsd-kind-icon">Tello<wbr>Drone</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/validcommandoptions.html" class="tsd-kind-icon">Valid<wbr>Command<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#droneeventemitter" class="tsd-kind-icon">Drone<wbr>Event<wbr>Emitter</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#validcommands" class="tsd-kind-icon">Valid<wbr>Commands</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#commands" class="tsd-kind-icon">commands</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#limits" class="tsd-kind-icon">limits</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#formatcommand" class="tsd-kind-icon">format<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parsedronestate" class="tsd-kind-icon">parse<wbr>Drone<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#verifycommand" class="tsd-kind-icon">verify<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#config" class="tsd-kind-icon">config</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
