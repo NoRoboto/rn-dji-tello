@@ -1,1 +1,3 @@
-export * from './lib/number';
+import Drone from './lib/drone';
+
+export default Drone;
