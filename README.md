@@ -14,17 +14,17 @@
 - [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
 
-
 ## Quick start
 
+This wrapper is totally based on https://github.com/AlexanderGranhof/tello-drone, special thanks to the author of this repo. 🙏
 
-This wrapper is totally based on https://github.com/AlexanderGranhof/tello-drone, special thanks to the author of this repo. 🙏 
+Important, install `react-native-udp` in your base project.
 
-- ```yarn add rn-dji-tello```
+- `yarn add rn-dji-tello`
 
 or
 
-- ```npm install rn-dji-tello```
+- `npm install rn-dji-tello`
 
 ## Usage
 
@@ -37,17 +37,16 @@ const drone = new Tello();
 
 ### Listeners
 
-```jsx 
+```jsx
 drone.current.on(event_type, callback);
-
 ```
 
-| event type | description | callback args |
-|--|--|--|
-| connection | success connection listener | - |
-| state | sensor state | state: DroneState |
-| send | on send event listener  | error: Error, lenght: Number |
-| message | - | message: String |
+| event type | description                 | callback args                |
+| ---------- | --------------------------- | ---------------------------- |
+| connection | success connection listener | -                            |
+| state      | sensor state                | state: DroneState            |
+| send       | on send event listener      | error: Error, lenght: Number |
+| message    | -                           | message: String              |
 
 #### Senders
 
@@ -56,28 +55,54 @@ await drone.current?.send(command, options?, froce?);
 command list:
 
 ```ts
-type list = 'command' | 'takeoff' | 'land' | 'streamon' | 'streamoff' | 'emergency' | 'up' | 'down' | 'left' | 'right' | 'forward' | 'back' | 'cw' | 'ccw' | 'flip' | 'go' | 'curve' | 'speed' | 'rc' | 'wifi' | 'speed?' | 'battery?' | 'time?' | 'wifi?' | 'sdk?' | 'sn?'
+type list =
+  | 'command'
+  | 'takeoff'
+  | 'land'
+  | 'streamon'
+  | 'streamoff'
+  | 'emergency'
+  | 'up'
+  | 'down'
+  | 'left'
+  | 'right'
+  | 'forward'
+  | 'back'
+  | 'cw'
+  | 'ccw'
+  | 'flip'
+  | 'go'
+  | 'curve'
+  | 'speed'
+  | 'rc'
+  | 'wifi'
+  | 'speed?'
+  | 'battery?'
+  | 'time?'
+  | 'wifi?'
+  | 'sdk?'
+  | 'sn?';
 ```
 
 ---
 
 ```ts
 interface options {
-    value?: number | string;
-    x?: number;
-    y?: number;
-    z?: number;
-    x1?: number;
-    y1?: number;
-    z1?: number;
-    x2?: number;
-    y2?: number;
-    z2?: number;
-    speed?: number;
-    a?: number;
-    b?: number;
-    c?: number;
-    d?: number;
+  value?: number | string;
+  x?: number;
+  y?: number;
+  z?: number;
+  x1?: number;
+  y1?: number;
+  z1?: number;
+  x2?: number;
+  y2?: number;
+  z2?: number;
+  speed?: number;
+  a?: number;
+  b?: number;
+  c?: number;
+  d?: number;
 }
 ```
 
@@ -85,12 +110,11 @@ interface options {
 
 force: boolean
 
-
 Please, read tello documentation to group the appropriate options for the desired command.
 
 ## What's included
 
-* Support for typescript and sockets using react-native-udp.
+- Support for typescript and sockets using react-native-udp.
 
 ## Example
 
@@ -151,7 +175,7 @@ const  App = () => {
         console.log('Recieved Message > ', message);
 
       });
- 
+
 
     } catch (error) {
 
@@ -196,11 +220,11 @@ const  App = () => {
 
 };
 
-  
+
 ....
 
 
- ``` 
+```
 
 ## Creators
 
@@ -211,6 +235,5 @@ const  App = () => {
 https://github.com/AlexanderGranhof/tello-drone
 
 ## Copyright and license
-
 
 MIT
