@@ -118,6 +118,8 @@ Please, read tello documentation to group the appropriate options for the desire
 
 ## Example
 
+See: https://github.com/NoRoboto/rn-dji-tello-example/tree/main
+
 ```jsx
 import  React, {useRef, useState} from  'react';
 
