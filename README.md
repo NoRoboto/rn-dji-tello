@@ -119,6 +119,7 @@ const  App = () => {
 
 
       drone.current.on('connection', () => {
+       setInit(true);
 
        console.log('Connected to drone');
 
@@ -150,9 +151,6 @@ const  App = () => {
         console.log('Recieved Message > ', message);
 
       });
-
-
-      setInit(true);
  
 
     } catch (error) {
